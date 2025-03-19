@@ -105,6 +105,28 @@ function App() {
 }
 ```
 
+## 22. 컴포넌트에 속성 추가하기
+
+`props` 예약어를 사용하여 아래와 같이 사용할 수 있다.
+
+```jsx
+function App() {
+  return <main>
+    <Post author="Maximilian" body="React.js is awesome!" />
+    <Post author="Manuel" body="Check out full course!"/>
+  </main>;
+}
+```
+
+```jsx
+function Post(props) {
+
+    return <div>
+        <p>{ props.author }</p>
+        <p>{ props.body }</p>
+    </div>
+} 
+```
 
 ---
 
