@@ -164,7 +164,73 @@ function Post(props) {
 4. **React, Vue, Next.js 등에서 지원**
    - CSS Module은 다양한 프레임워크에서 사용 가능합니다.
 
+## 26. 이벤트 리스너 추가하기
 
+```jsx
+function NewPost() {
+  // 기존 바닐라 JS 방식
+  // document.querySelector("textarea").addEventListener("change", function (event) {});
+
+  function changeBodyHandler(event) {
+    // textarea의 변경된 text를 return
+    console.log(event.target.value);
+  }
+
+  return (
+    <form className={classes.form}>
+      <p>
+        <label htmlFor="body">Text</label>
+        <textarea id="body" required rows={3} onChange={changeBodyHandler} />
+      </p>
+      <p>
+        <label htmlFor="name">Your name</label>
+        <input type="text" id="name" required />
+      </p>
+    </form>
+  );
+}
+```
+
+## 27. 상태 적용하기
+
+`jsx`는 랜더링할 때, 한 번만 실행되므로, 아래와 같이 변수를 사용하면 적용이 되지 않음
+
+```jsx
+  let enteredBody = "Init Value";
+
+  function changeBodyHandler(event) {
+    enteredBody = event.target.value;
+  }
+
+  return (
+    <form className={classes.form}>
+      <p>
+        <label htmlFor="body">Text</label>
+        <textarea id="body" required rows={3} onChange={changeBodyHandler} />
+      </p>
+      <!-- `enteredBody`의 초기값 ""이 들어감 -->
+      <p>{enteredBody}</p>
+      <p>
+        <label htmlFor="name">Your name</label>
+        <input type="text" id="name" required />
+      </p>
+    </form>
+  );
+```
+
+위 문제를 해결하기 위해서는 `React`에서 제공하는 `State`를 사용해야함.
+
+```jsx
+  // 초기값, 변수 변환 함수
+  const [enteredBody, setEnteredBody] = useState("");
+
+  // document.querySelector("textarea").addEventListener("change", function (event) {});
+  function changeBodyHandler(event) {
+    setEnteredBody(event.target.value);
+  }
+```
+
+## 28. 상태 올리기
 
 
 ---
