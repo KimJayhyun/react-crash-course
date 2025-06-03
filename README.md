@@ -128,7 +128,7 @@ function Post(props) {
 } 
 ```
 
-## 23. CSS 모듈로 CSS 스타일 적용하기
+## 23. `module.css` 파일로 CSS 스타일 적용하기
 
 [css module](./docs/css_module.md)이란 `Webpack`에서 제공하는 기능으로
 
