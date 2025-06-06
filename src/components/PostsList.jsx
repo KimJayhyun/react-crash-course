@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import Post from "./Post";
-import NewPost from "./NewPost";
-import Modal from "./Modal";
 import classes from "./PostsList.module.css";
 
-function PostsList({ isPosting, onStopPosting }) {
+function PostsList() {
   const [posts, setPosts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
@@ -20,25 +18,8 @@ function PostsList({ isPosting, onStopPosting }) {
     fectPosts();
   }, []);
 
-  function addPostHandler(postData) {
-    fetch("http://192.168.219.150:8080/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-  }
-
   return (
     <>
-      {isPosting && (
-        <Modal onClose={onStopPosting}>
-          <NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
-        </Modal>
-      )}
       {!isFetching && posts.length > 0 && (
         <ul className={classes.posts}>
           {posts.map((post) => (
