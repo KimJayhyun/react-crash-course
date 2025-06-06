@@ -1,7 +1,7 @@
 import PostsList from "../components/PostsList";
 import { Outlet } from "react-router";
 
-function Post() {
+function Posts() {
   return (
     <>
       <Outlet />
@@ -12,7 +12,7 @@ function Post() {
   );
 }
 
-export default Post;
+export default Posts;
 
 // export async function loader() {
 //   const response = await fetch("http://192.168.219.150:8080/posts");
