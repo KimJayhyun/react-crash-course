@@ -1,7 +1,7 @@
 import classes from "./NewPost.module.css";
 import { useState } from "react";
 import Modal from "../components/Modal";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 function NewPost({ onCancel, onAddPost }) {
   // document.querySelector("textarea").addEventListener("change", function (event) {});

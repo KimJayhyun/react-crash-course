@@ -1,7 +1,7 @@
 import { MdPostAdd, MdMessage } from "react-icons/md";
 
 import classes from "./MainHeader.module.css";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 function MainHeader() {
   return (
